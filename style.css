@@ -1,0 +1,113 @@
+:root {
+    --c1: #ff0055; --c2: #00f2ff; --c3: #7000ff; --c4: #ffea00;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+/* THE CHROMA ENGINE */
+.master-stage {
+    position: fixed; inset: 0; z-index: 1; pointer-events: none;
+}
+
+.chroma-aurora {
+    position: absolute; inset: -50%;
+    background: 
+        radial-gradient(circle at 20% 30%, var(--c1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, var(--c2) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, var(--c3) 0%, transparent 50%),
+        radial-gradient(circle at 10% 90%, var(--c4) 0%, transparent 30%);
+    filter: blur(100px);
+    animation: shift 15s ease infinite alternate;
+    opacity: 0.6;
+}
+
+@keyframes shift {
+    0% { transform: rotate(0deg) scale(1); background-color: #050010; }
+    50% { transform: rotate(10deg) scale(1.1); background-color: #100005; }
+    100% { transform: rotate(-10deg) scale(1); background-color: #000a10; }
+}
+
+.noise-floor {
+    position: fixed; inset: 0; background: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.2; mix-blend-mode: overlay; z-index: 2;
+}
+
+/* CONTENT LAYERING */
+.view-viewport {
+    position: relative; z-index: 10;
+    width: 100%;
+}
+
+.glass-header {
+    position: fixed; top: 0; width: 100%; padding: 2rem;
+    display: flex; justify-content: space-between; z-index: 100;
+    backdrop-filter: blur(10px); background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+}
+
+.logo { font-family: 'Syncopate', sans-serif; letter-spacing: 0.6em; font-size: 0.9rem; }
+
+/* HERO */
+.hero-gate {
+    height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+
+#countdown {
+    font-family: 'Syncopate', sans-serif; font-size: clamp(2rem, 15vw, 10rem);
+    margin: 1rem 0; text-shadow: 0 0 30px rgba(255,255,255,0.2);
+}
+
+.pre-text { color: var(--c2); letter-spacing: 0.5em; font-size: 0.7rem; }
+
+/* PORTAL CARDS (The Clickables) */
+.interaction-zone {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem; padding: 5rem 10%;
+}
+
+.glass-portal {
+    background: var(--glass);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    border-radius: 40px;
+    padding: 4rem 2rem;
+    cursor: pointer;
+    transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    text-align: center;
+}
+
+.glass-portal:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--c2);
+    transform: translateY(-20px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.btn-fake {
+    margin-top: 2rem; padding: 1rem 2rem; border-radius: 100px;
+    background: #fff; color: #000; font-weight: 900; font-size: 0.7rem;
+}
+
+/* AUDIO VIZ */
+.audio-status { display: flex; gap: 4px; height: 20px; align-items: flex-end; }
+.audio-status span { width: 3px; height: 100%; background: #fff; transform-origin: bottom; }
+.playing span { animation: barJump 0.5s infinite alternate; }
+@keyframes barJump { from { transform: scaleY(0.2); } to { transform: scaleY(1.5); } }
+
+.mega-ignite {
+    background: linear-gradient(90deg, var(--c1), var(--c3));
+    color: white; border: none; padding: 2rem 5rem; border-radius: 100px;
+    font-family: 'Syncopate', sans-serif; font-weight: 700;
+    box-shadow: 0 0 50px var(--c3); cursor: pointer;
+    transition: 0.4s;
+}
+
+.mega-ignite:hover { transform: scale(1.1); filter: brightness(1.2); }
