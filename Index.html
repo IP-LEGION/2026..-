@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 | THE BEYOND</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@300;900&display=swap" rel="stylesheet">
+</head>
+<body onclick="initAudio()">
+
+    <div class="master-stage">
+        <div class="chroma-aurora"></div>
+        <div class="noise-floor"></div>
+        <canvas id="fireworksCanvas"></canvas>
+    </div>
+
+    <nav class="glass-header">
+        <div class="logo">MMXXVI</div>
+        <div class="audio-status" id="viz">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <div class="view-viewport">
+        <section class="hero-gate">
+            <div class="glitch-box">
+                <span class="pre-text">SYSTEM READY // 2026</span>
+                <h1 id="countdown">00:00:00:00</h1>
+                <p class="tagline">PRESS ANYWHERE TO ACTIVATE SENSES</p>
+            </div>
+        </section>
+
+        <section class="interaction-zone">
+            <div class="glass-portal reveal" onclick="toChannel()">
+                <div class="portal-content">
+                    <span class="num">01</span>
+                    <h3>FUTURE LETTER</h3>
+                    <p>Prophesy your 2026. Click to join the inner circle and transmit your vision.</p>
+                    <div class="btn-fake">OPEN CHANNEL →</div>
+                </div>
+            </div>
+
+            <div class="glass-portal reveal" onclick="toChannel()">
+                <div class="portal-content">
+                    <span class="num">02</span>
+                    <h3>GLOBAL WISHES</h3>
+                    <p>Connect with the collective. Share your frequency with the world.</p>
+                    <div class="btn-fake">JOIN COMMUNITY →</div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="final-bridge">
+            <button class="mega-ignite" onclick="triggerFireworks()">UNLEASH THE LIGHT 🎆</button>
+        </footer>
+    </div>
+
+    <audio id="bgMusic" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+                                                     </html>
